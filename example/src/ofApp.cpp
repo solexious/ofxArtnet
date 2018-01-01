@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     //at first you must specify the Ip address of this machine
-    artnet.setup("10.0.0.4"); //make sure the firewall is deactivated at this point
+    artnet.setup("192.168.1.20"); //make sure the firewall is deactivated at this point
     
     ofSetFrameRate(40);
     fbo.allocate(512, 1, GL_RGB);
@@ -29,7 +29,8 @@ void testApp::update(){
     //list nodes for sending
     //with subnet / universe
 //    artnet.sendDmx("10.0.0.149", 0xf, 0xf, testImage.getPixels(), 512);
-    artnet.sendDmx("10.0.0.149", testImage.getPixels().getData(), 512);
+//    artnet.sendDmx("10.0.0.149", testImage.getPixels().getData(), 512);
+    artnet.broadcastDmx(0, testImage.getPixels().getData(), 512);
 }
 
 //--------------------------------------------------------------

@@ -129,3 +129,8 @@ int ofxArtnet::sendDmx( string targetIp, int targetSubnet, int targetUniverse, c
     }
     return result;
 }
+
+int ofxArtnet::broadcastDmx( int targetUniverse, const unsigned char* data512, int size )
+{
+    return artnet_raw_send_dmx(node, targetUniverse, size, data512);;
+}

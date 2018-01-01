@@ -50,6 +50,7 @@ public:
     void threadedFunction();
     int sendDmx( string targetIp, const unsigned char* data512, int size );
     int sendDmx( string targetIp, int targetSubnet, int targetUniverse, const unsigned char* data512, int size );
+    int broadcastDmx( int targetUniverse, const unsigned char* data512, int size );
 
     
     private:
